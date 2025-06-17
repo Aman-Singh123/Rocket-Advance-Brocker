@@ -97,6 +97,12 @@ body {
       height: 40px;
     }
 
+    @media (max-width: 768px) {
+          padding: 10px 6px;
+          font-size: 14px;
+          height: 40px;
+    }
+
     .ant-input-prefix {
       margin-right: 12px;
 
@@ -132,6 +138,11 @@ body {
   .selectBorderedCustom .ant-select-selector {
     height: 62px !important;
     padding-left: 30px !important;
+
+    @media (max-width:768px) {
+      padding-left: 12px !important;
+      
+    }
   }
 
   .ant-select .ant-select-arrow {
@@ -1071,7 +1082,6 @@ input:-webkit-autofill:active {
   justify-content: space-between;
   align-items: center;
   padding: 12px 16px;
-  background: #fff;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
@@ -1094,14 +1104,14 @@ input:-webkit-autofill:active {
 }
 
 .top-icon {
-  font-size: 18px;
+  font-size: 23px;
   color: #334155;
 }
 
 .rotated {
   transform: rotate(90deg);
   font-weight: 900;
-  font-size: 18px;
+  font-size: 23px;
   color: #0f172a;
 }
 
@@ -1115,13 +1125,19 @@ input:-webkit-autofill:active {
 }
 
 .mobile-bottom-nav {
-  height: 140px;
+  height: 80px;
   background: #ffffff;
   box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.05);
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 0 12px;
+
+  @media (max-width:425px) {
+    height: 130px;
+    
+  }
+
 }
 
 .height-mobile-bottom {
@@ -1208,10 +1224,15 @@ input:-webkit-autofill:active {
     margin: 0;
   }
 
+    p:nth-of-type(2) {
+      font-weight: 400;
+      color: #7f868d;   
+      padding-left: 32px; 
+    }
   .contact-details {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 10px;
     margin-top: 20px;
     width: 100%;
     max-width: 190px;
@@ -1252,6 +1273,7 @@ input:-webkit-autofill:active {
     }
 
     .linkText {
+      color: var(--baseColor);
       font-weight: 500;
     }
 

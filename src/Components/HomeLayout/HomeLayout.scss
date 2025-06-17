@@ -8,6 +8,8 @@
     align-items: center;
     justify-content: center;
     height: 100%;
+
+
   }
 
   &_left {
@@ -64,8 +66,10 @@
       border-top-left-radius: 30px;
       border-top-right-radius: 30px;
       padding: 20px;
+      align-items: start !important;
     }
   }
+
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -87,6 +91,7 @@
       justify-content: center;
 
       &_logoSec {
+        margin-top: 32px;
         margin-bottom: 10px;
         display: flex;
         justify-content: center;
@@ -123,11 +128,17 @@
     }
 
     &_right {
-      height: 60vh;
+      height: 68vh;
       background-color: white;
       padding: 0;
       width: 100vw;
       margin: 0;
+    }
+
+    @media (min-width: 420px) and (max-width: 560px) {
+      &_right {
+        height: 80vh;
+      }
     }
   }
 }

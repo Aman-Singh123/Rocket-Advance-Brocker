@@ -134,12 +134,16 @@ export default function DealsContainer() {
             </div>
             <div className="smallCards_container_right">
               <h3>Existing Deals</h3>
-              <h1>
+              <h1 className="desktop-only">
                 {dealsData[0]?.count || 0}
                 <span>Deals</span>
               </h1>
             </div>
           </div>
+          <h1 className="mobile-only" >
+            {dealsData[0]?.count || 0}
+            <span>Deals</span>
+          </h1>
           {/* <p className="smallCards_container_footer">
             From last month {getDate(new Date(dealsData[0]?.timestamp || ""))}{" "}
           </p> */}
@@ -151,12 +155,16 @@ export default function DealsContainer() {
             </div>
             <div className="smallCards_container_right">
               <h3>Closed Deals</h3>
-              <h1>
+              <h1 className="desktop-only">
                 {dealsData[1]?.count || 0}
                 <span>Deals</span>
               </h1>
             </div>
           </div>
+          <h1 className="mobile-only">
+            {dealsData[1]?.count || 0}
+            <span>Deals</span>
+          </h1>
           {/* <p className="smallCards_container_footer">
             From last month {getDate(new Date(dealsData[0]?.timestamp))}{" "}
           </p> */}

@@ -12,10 +12,12 @@ import makeRequest from "../../Api/makeRequest";
 import { loginValidation } from "../../Utilis/Validations";
 import { useNavigate } from "react-router-dom/dist";
 import { toast } from "react-toastify";
+import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 
 export default function Login() {
   //Sates management
   const [searchParams, setSearchParams] = useSearchParams();
+  const [showPassword, setShowPassword] = useState(false);
 
   const [userDetails, setUserDetails] = useState({
     email: "",
@@ -63,7 +65,7 @@ export default function Login() {
   return (
     <div className="userDetails">
       <h1>Hello Again!</h1>
-      <p>Welcome Back to Admin Portal</p>
+      <p>Welcome Back to Broker Portal</p>
       <div className="inputOuter mb30">
         <Input
           placeholder="Email Address"
@@ -76,10 +78,17 @@ export default function Login() {
       <div className="inputOuter mb30">
         <Input
           placeholder="Password"
-          type="password"
+          type={showPassword ? "text" : "password"}
           prefix={<LockIcon />}
+          suffix={
+            showPassword ? (
+              <EyeTwoTone onClick={() => setShowPassword(false)} />
+            ) : (
+              <EyeInvisibleOutlined onClick={() => setShowPassword(true)} />
+            )
+          }
           name="password"
-          onChange={(e) => handleChange(e)}
+          onChange={handleChange}
         />
         <p className="validationErr">{error.password}</p>
       </div>
@@ -108,12 +117,11 @@ export default function Login() {
             {
               value: "agent",
               label: "Agent",
-              disabled: true,
+
             },
             {
-              value: "inverstor",
-              label: "Inverstor",
-              disabled: true,
+              value: "Investor",
+              label: "Investor",
             },
           ]}
         />

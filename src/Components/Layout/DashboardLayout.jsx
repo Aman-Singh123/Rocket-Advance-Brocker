@@ -8,12 +8,16 @@ import Logo from "../../Asset/LogoMainColored.svg";
 import {
   ContactIcon,
   DashboardIcon,
+  DashboardIconFill,
   EmailIcon,
+  EmailIconFilled,
   InternetIcon,
   LogoutIcon,
   LogoutIconMobileScreen,
   ProfileIcon,
   UserIcon,
+  UserIconFilled,
+  UserIconUnfilled,
   rightArrow
 } from "../../StoreImages/StoreImage.jsx";
 import { BellOutlined, MoreOutlined, ArrowLeftOutlined } from "@ant-design/icons";
@@ -101,15 +105,14 @@ const DashboardLayout = ({ children }) => {
               </div>
             </div>
             <div className="mobile-main-content">
-
               <div className="ContactUSResponsive">
-                <p style={{fontWeight:900}}>Contact Us</p>
+                <p style={{ fontWeight: 900 }}>Contact Us</p>
                 <p style={{ marginTop: 12 }}>Schedule your Brokerage Lunch & Learns.</p>
 
                 <div className="contact-details">
                   <div className="contact-row">
                     <div className="icon-col">
-                      <EmailIcon />
+                      <EmailIconFilled />
                     </div>
                     <div className="text-col">
                       <p className="linkText">info@rocketadvance.ca</p>
@@ -137,25 +140,26 @@ const DashboardLayout = ({ children }) => {
                   </div>
                 </div>
               </div>
-
-
-
-
-
-
             </div>
-            <div className="mobile-bottom-nav height-mobile-bottom ">
+            <div className="mobile-bottom-nav height-mobile-bottom">
               <div
-                className={`nav-item ${isActive("/dashboard") ? "active" : ""}`}
-                onClick={() => navigate("/dashboard")}
+                className=""
+                onClick={() => {
+                  navigate("/dashboard");
+                  setShowContact(false);
+                }}
               >
-                <DashboardIcon />
+                {pathname === "/dashboard" ? <DashboardIconFill /> : <DashboardIcon />}
               </div>
+
               <div
-                className={`nav-item ${isActive("/profile") ? "active" : ""}`}
-                onClick={() => navigate("/profile")}
+                className=""
+                onClick={() => {
+                  navigate("/profile");
+                  setShowContact(false);
+                }}
               >
-                <UserIcon />
+                {pathname === "/profile" ? <ProfileIcon /> : <UserIconUnfilled />}
               </div>
             </div>
           </>
@@ -164,7 +168,7 @@ const DashboardLayout = ({ children }) => {
             {/* Default Mobile Layout */}
             <div className="mobile-top-header">
               <div className="broker-box">
-                {pathname === "/profile" ? <ProfileIcon /> : <DashboardIcon />}
+                {pathname === "/profile" ? <ProfileIcon /> : <DashboardIconFill />}
                 <span className="broker-text">
                   {pathname === "/profile" ? "Profile" : "Broker of record"}
                 </span>
@@ -203,23 +207,27 @@ const DashboardLayout = ({ children }) => {
 
             <div className="mobile-main-content">{children}</div>
 
-            <div className="mobile-bottom-nav">
+            <div className="mobile-bottom-nav"
+              style={window.location.pathname === '/profile' ? { height: "180px" } : {}}>
               <div
-                className={`nav-item ${isActive("/dashboard") ? "active" : ""}`}
+                className=""
                 onClick={() => navigate("/dashboard")}
               >
-                <DashboardIcon />
+                {pathname === "/dashboard" ? <DashboardIconFill /> : <DashboardIcon />}
               </div>
+
               <div
-                className={`nav-item ${isActive("/profile") ? "active" : ""}`}
+                className=""
                 onClick={() => navigate("/profile")}
               >
-                <UserIcon />
+                {pathname === "/profile" ? <ProfileIcon /> : <UserIconUnfilled />}
               </div>
             </div>
+
           </>
-        )}
-      </div>
+        )
+        }
+      </div >
     );
   }
 

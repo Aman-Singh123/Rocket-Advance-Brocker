@@ -31,10 +31,18 @@ export default function DealsCard(
         </span>
       </div>
       <p className="smallText">{smallText}</p>
-      <h2 className={fontLg ? "fontLg" : ""}>
+      <h2
+        className={`deal-value ${fontLg ? "fontLg" : ""}`}
+        style={
+          typeof DealsValue === "string" && !isNaN(Date.parse(DealsValue)) && window.innerWidth < 768
+            ? { color: "black" }
+            : undefined
+        }
+      >
         {!show ? "$" : null}
         {DealsValue}
       </h2>
+
       <div className="dealsCard_date">{dateValue} </div>
     </div>
   );

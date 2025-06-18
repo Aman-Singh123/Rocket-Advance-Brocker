@@ -1131,7 +1131,7 @@ input:-webkit-autofill:active {
   right: 0;
   z-index: 999; // make sure it's above other content
 
-  height: 80px;
+  height: 60px;
   background: #ffffff;
   box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.05);
   display: flex;
@@ -1140,7 +1140,7 @@ input:-webkit-autofill:active {
   padding: 0 12px;
 
   @media (max-width: 425px) {
-    height: 130px;
+    height: 70px;
   }
 }
 
@@ -1289,5 +1289,18 @@ input:-webkit-autofill:active {
         color: var(--baseColor);
       }
     }
+  }
+}
+
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+
+  .load-more-btn {
+    color: #0E1C2C;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
   }
 }

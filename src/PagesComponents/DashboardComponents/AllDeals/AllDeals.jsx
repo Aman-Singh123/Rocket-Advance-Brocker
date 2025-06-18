@@ -18,6 +18,7 @@ export default function AllDeals() {
   const navigate = useNavigate();
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState();
+  const [visibleCount, setVisibleCount] = useState(4);
 
   const fetchDealDetail = async (value) => {
     const { data, total } = await makeRequest(
@@ -95,19 +96,37 @@ export default function AllDeals() {
             <div key={index} className="deal-card">
               <div
                 className="deal-header"
+                style={{
+      backgroundColor: item.open ? "#CA2543" : "#fff",
+      color: item.open ? "#fff" : "#000",
+    }}
                 onClick={() =>
                   setDataSource((prev) =>
                     prev.map((deal, i) =>
                       i === index ? { ...deal, open: !deal.open } : { ...deal, open: false }
                     )
                   )
-                }
+                } 
               >
-                <div className="label">Agreement Number</div>
-                <div className="flex">
-                  <div className="number">{item.unique_deal_number1}</div>
-                  <div className="arrow ms-2">{item.open ? "▲" : "▼"}</div>
-                </div>
+                {!item.open ? (
+                  <div className="deal-collapsed">
+                    <div className="number">{item.unique_deal_number1}</div>
+                    <div className="flex">
+                      <div className={`status-badge ${String(item.Stage).toLowerCase().replace(/\s/g, "")}`}>
+                        {renameStatus(item.Stage)}
+                      </div>
+                      <div className="arrow ms-2">▼</div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className='deal-collapsed' >
+                    <div className="label">Agreement Number</div>
+                    <div className="flex">
+                      <div className="number">{item.unique_deal_number1}</div>
+                      <div className="arrow ms-2">▲</div>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {item.open && (
@@ -155,14 +174,25 @@ export default function AllDeals() {
                     </div>
                   </div>
                 </div>
-             
               )}
             </div>
           ))}
+
+          {/* Load More Button */}
+          {visibleCount < dataSource?.length && (
+            <div className="load-more-container">
+              <p
+                className="load-more-btn"
+                onClick={() => setVisibleCount((prev) => prev + 4)}
+              >
+                Load More...
+              </p>
+            </div>
+          )}
         </div>
 
       </div>
     </div>
   );
-  
+
 }

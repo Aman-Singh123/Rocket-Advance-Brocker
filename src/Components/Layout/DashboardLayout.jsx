@@ -150,7 +150,7 @@ const DashboardLayout = ({ children }) => {
                 >
                   {pathname === "/dashboard" ? <DashboardIconFill /> : <DashboardIcon />}
                 </div>
- 
+
                 <div
                   className=""
                   onClick={() => {
@@ -162,7 +162,7 @@ const DashboardLayout = ({ children }) => {
                 </div>
               </div>
             </div>
-            
+
           </>
         ) : (
           <>
@@ -206,10 +206,10 @@ const DashboardLayout = ({ children }) => {
               </div>
             </div>
 
-            <div className="mobile-main-content">{children}</div>
+            <div className="mobile-main-content" style={{ paddingBottom: "100px" }}>{children}</div>
 
             <div className="mobile-bottom-nav"
-              style={window.location.pathname === '/profile' ? { height: "180px" } : {}}>
+              >
               <div
                 className=""
                 onClick={() => navigate("/dashboard")}
@@ -233,7 +233,7 @@ const DashboardLayout = ({ children }) => {
   }
 
   return (
-    <div className="mainLayout">
+    <div className="mainLayout " >
       <Layout>
         <Sider
           collapsible

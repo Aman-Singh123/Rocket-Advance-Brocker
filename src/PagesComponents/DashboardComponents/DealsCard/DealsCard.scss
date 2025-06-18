@@ -42,7 +42,7 @@
 
   h3 {
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: normal;
     // white-space: nowrap;
     color: var(--dark1);
@@ -183,7 +183,7 @@
 
   &_container {
     border-radius: 12px;
-    padding: 15px 11px;
+    padding: 25px 11px;
     background-color: var(--white);
     max-width: 260px;
     min-width: 260px;
@@ -332,14 +332,14 @@ h1.mobile-only {
     margin-left: 10px;
     display: block;
     color: #0e1c2c;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 700;
     margin: 6px;
 
     span {
-      font-size: 12px;
-      font-weight: 400;
-      color: #000;
+      font-size: 14px;
+      font-weight: 500;
+      color: #0E1C2C;      ;
       margin-left: 5px;
       display: inline-block;
     }

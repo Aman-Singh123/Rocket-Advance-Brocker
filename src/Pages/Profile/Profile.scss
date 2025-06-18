@@ -3,6 +3,7 @@
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 15px;
+  display: block;
 
 
   @media (max-width:991px) {
@@ -12,10 +13,12 @@
 
   @media (max-width : 767px) {
     font-size: 16px;
+    display: none;
   }
 
   @media (max-width : 427px) {
       font-size: 14px;
+      display: none;
   }
 }
 
@@ -71,6 +74,11 @@
     border-radius: 14px;
     &:hover {
       color: var(--white);
+    }
+
+    @media (max-width : 768px) {
+      background-color: #d82e4a !important;
+      
     }
   }
 }

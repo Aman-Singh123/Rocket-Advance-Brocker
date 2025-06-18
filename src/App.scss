@@ -98,9 +98,9 @@ body {
     }
 
     @media (max-width: 768px) {
-          padding: 10px 6px;
-          font-size: 14px;
-          height: 40px;
+      padding: 10px 6px;
+      font-size: 14px;
+      height: 40px;
     }
 
     .ant-input-prefix {
@@ -141,7 +141,7 @@ body {
 
     @media (max-width:768px) {
       padding-left: 12px !important;
-      
+
     }
   }
 
@@ -1104,14 +1104,14 @@ input:-webkit-autofill:active {
 }
 
 .top-icon {
-  font-size: 23px;
+  font-size: 25px;
   color: #334155;
 }
 
 .rotated {
   transform: rotate(90deg);
   font-weight: 900;
-  font-size: 23px;
+  font-size: 25px;
   color: #0f172a;
 }
 
@@ -1125,6 +1125,12 @@ input:-webkit-autofill:active {
 }
 
 .mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999; // make sure it's above other content
+
   height: 80px;
   background: #ffffff;
   box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.05);
@@ -1133,11 +1139,9 @@ input:-webkit-autofill:active {
   align-items: center;
   padding: 0 12px;
 
-  @media (max-width:425px) {
+  @media (max-width: 425px) {
     height: 130px;
-    
   }
-
 }
 
 .height-mobile-bottom {
@@ -1218,17 +1222,18 @@ input:-webkit-autofill:active {
   padding: 24px;
   text-align: center;
 
-  p   ,
+  p,
   a {
     color: black;
     margin: 0;
   }
 
-    p:nth-of-type(2) {
-      font-weight: 400;
-      color: #7f868d;   
-      padding-left: 32px; 
-    }
+  p:nth-of-type(2) {
+    font-weight: 400;
+    color: #7f868d;
+    padding-left: 32px;
+  }
+
   .contact-details {
     display: flex;
     flex-direction: column;
@@ -1268,7 +1273,7 @@ input:-webkit-autofill:active {
       line-height: 1.5;
 
       &:hover {
-        color : var(--baseColor)
+        color: var(--baseColor)
       }
     }
 

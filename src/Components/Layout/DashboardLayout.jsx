@@ -140,28 +140,29 @@ const DashboardLayout = ({ children }) => {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="mobile-bottom-nav height-mobile-bottom">
-              <div
-                className=""
-                onClick={() => {
-                  navigate("/dashboard");
-                  setShowContact(false);
-                }}
-              >
-                {pathname === "/dashboard" ? <DashboardIconFill /> : <DashboardIcon />}
+              <div className="mobile-bottom-nav height-mobile-bottom">
+                <div
+                  className=""
+                  onClick={() => {
+                    navigate("/dashboard");
+                    setShowContact(false);
+                  }}
+                >
+                  {pathname === "/dashboard" ? <DashboardIconFill /> : <DashboardIcon />}
+                </div>
+ 
+                <div
+                  className=""
+                  onClick={() => {
+                    navigate("/profile");
+                    setShowContact(false);
+                  }}
+                >
+                  {pathname === "/profile" ? <ProfileIcon /> : <UserIconUnfilled />}
+                </div>
               </div>
-
-              <div
-                className=""
-                onClick={() => {
-                  navigate("/profile");
-                  setShowContact(false);
-                }}
-              >
-                {pathname === "/profile" ? <ProfileIcon /> : <UserIconUnfilled />}
-              </div>
             </div>
+            
           </>
         ) : (
           <>

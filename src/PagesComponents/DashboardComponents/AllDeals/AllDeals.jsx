@@ -92,21 +92,22 @@ export default function AllDeals() {
 
         {/* Mobile Accordion View */}
         <div className="mobile-deals mobile-only">
-          {dataSource?.map((item, index) => (
+          {dataSource?.slice(0, visibleCount).map((item, index) => (
             <div key={index} className="deal-card">
               <div
                 className="deal-header"
                 style={{
-      backgroundColor: item.open ? "#CA2543" : "#fff",
-      color: item.open ? "#fff" : "#000",
-    }}
+                  backgroundColor: item.open ? "#CA2543" : "#fff",
+                  color: item.open ? "#fff" : "#000",
+                }}
                 onClick={() =>
                   setDataSource((prev) =>
                     prev.map((deal, i) =>
                       i === index ? { ...deal, open: !deal.open } : { ...deal, open: false }
                     )
                   )
-                } 
+                }
+              
               >
                 {!item.open ? (
                   <div className="deal-collapsed">

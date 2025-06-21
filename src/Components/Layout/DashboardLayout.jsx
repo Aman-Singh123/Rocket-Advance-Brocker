@@ -207,8 +207,8 @@ const DashboardLayout = ({ children }) => {
             </div>
 
             <div className="mobile-main-content" style={{ paddingBottom: "100px" }}>{children}</div>
-
-            <div className="mobile-bottom-nav"
+              <div className="mobile-bottom-nav"
+                
               >
               <div
                 className=""

@@ -30,7 +30,7 @@ export default function DealsCard(
           {advanceText && <h3 style={{ marginBottom: 12 }}>{advanceText}</h3>}
         </span>
       </div>
-      <p className="smallText">{smallText}</p>
+      <p className="smallText">{smallText !== "" ? smallText : " "}</p>
       <h2
         className={`deal-value ${fontLg ? "fontLg" : ""}`}
         style={

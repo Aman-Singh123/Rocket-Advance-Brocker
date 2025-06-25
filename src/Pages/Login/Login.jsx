@@ -30,7 +30,7 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-  const [role, setRole] = useState(searchParams.get("role") || "broker");
+  const [role, setRole] = useState(searchParams.get("role") || "Broker");
 
   //onChange function
   const handleChange = (e) => {
@@ -108,11 +108,11 @@ export default function Login() {
           options={[
             {
               value: "broker-admin",
-              label: "Broker administrator",
+              label: "Broker Administrator",
             },
             {
               value: "broker",
-              label: "Broker of record",
+              label: "Broker of Record",
             },
             {
               value: "agent",

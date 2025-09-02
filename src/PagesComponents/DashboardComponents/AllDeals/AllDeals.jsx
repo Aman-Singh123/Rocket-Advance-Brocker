@@ -29,14 +29,18 @@ export default function AllDeals() {
       undefined,
       navigate
     );
+    console.log("all deals",data)
 
     if (!Object.keys(data || []).length) return;
 
     setTotal(total);
     const modifyResponse = data.map((item) => ({
       ...item,
-      Closing_Date: formatDate(item?.Closing_Date),
-      Due_Date: formatDate(item?.Due_Date),
+
+      //  updaated
+
+      Closing_Date: item?.Closing_Date ? formatDate(item.Closing_Date) : 0,
+      Due_Date: item?.Due_Date ? formatDate(item.Due_Date) : 0,
       propertyAddr: (
         <span style={{ maxWidth: 152, display: "block" }}>
           {isValue(item?.Property_Street_Address)}

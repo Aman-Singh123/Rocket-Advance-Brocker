@@ -56,18 +56,30 @@ export default function DealsContainer() {
       undefined,
       navigate
     );
+    console.log("Data is ",data)
     if (!Object.keys(data || []).length) return;
     const response = [...commission];
-    const { month, year, last } = calculateNextMonthYear(
-      data?.Payout_Broker_Fee_Month
-    );
-    response[2].DealsValue = last
-      ? data?.Payout_Broker_Fee?.toLocaleString()
-      : 0;
-    // response[2].dateValue = data?.Payout_Broker_Fee_Month?.toLocaleString();
-    // response[3].DealsValue = `${month} ${year}`;
-    response[3].DealsValue = month ? `${month} 1, ${year}` : "-";
+
+    
+
+    // updaated
+
+    if (data?.Payout_Broker_Fee && data?.Payout_Broker_Fee_Month) {
+      const { month, year, last } = calculateNextMonthYear(data.Payout_Broker_Fee_Month);
+
+      response[2].DealsValue = last
+        ? data.Payout_Broker_Fee.toLocaleString()
+        : 0;
+
+      response[3].DealsValue = month ? `${month} 1, ${year}` : "-";
+    } else {
+      // If fee or month is null -> set default values
+      response[2].DealsValue = 0;
+      response[3].DealsValue = "-";
+    }
+
     setComission(response);
+
   };
 
   const fetchDealDetail = async () => {
@@ -123,6 +135,11 @@ export default function DealsContainer() {
     fetchCommission();
     fetchUser();
   }, []);
+
+ 
+    
+  console.log("commission",commission)
+  console.log("deals",dealsData) 
 
   return (
     <div className="dealsContainer">

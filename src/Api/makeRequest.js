@@ -17,7 +17,7 @@ const makeRequest = async (
     // Make a GET request using Axios with the provided URL and HTTP method (defaulting to "get" if not provided)
     const result = await axios({
       method: method || 'get',
-      url: `https://86e85c718c0a.ngrok-free.app/api${!isUser ? '/broker' : ''}${url}`,
+      url: `https://petite-eggs-shake.loca.lt/api${!isUser ? '/broker' : ''}${url}`,
       data: body || undefined,
       headers: {
         Authorization: localStorage.getItem('isLogged'),
